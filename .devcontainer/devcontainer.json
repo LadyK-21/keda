@@ -10,12 +10,12 @@
 		// "-u", "vscode",
 
 		// Mount go mod cache
-		"-v", "keda-gomodcache:/go/pkg",
+		"-v*", "keda-gomodcache:/go/pkg",
 		// Cache vscode exentsions installs and homedir
-		"-v", "keda-vscodecache:/root/.vscode-server",
+		"-v*", "keda-vscodecache:/root/.vscode-server",
 
 		// Mount docker socket for docker builds
-		"-v", "/var/run/docker.sock:/var/run/docker.sock",
+		"-v*", "/var/run/docker.sock:/var/run/docker.sock",
 
 		"--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined"
 	],
@@ -24,7 +24,7 @@
 	// You can edit these settings after create using File > Preferences > Settings > Remote.
 	"settings": {
 		"terminal.integrated.shell.linux": "/bin/bash",
-		"go.gopath": "/go"
+		"go.gopath": "/gomod"
 	},
 
 	// Add the IDs of extensions you want installed when the container is created in the array below.
